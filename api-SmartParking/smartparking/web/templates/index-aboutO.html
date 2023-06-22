@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar Tres</title>
+    <link rel="stylesheet" href="{% static '/css/index-about.css' %}" />
+    <link
+      rel="stylesheet"   href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' %}"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="search-bar">
+        <input type="text" placeholder="" />
+        <i id="search-icon" class="fas fa-search"></i>
+      </div>
+      <div class="icono-menu">
+        <img src="https://cdn.discordapp.com/attachments/759170694910705677/1120484065150251058/open-menu2.png" id="icono-menu" alt="Logo de la marca" />
+      </div>
+      <div class="cont-menu active" id="menu">
+        <ul>
+          <li>Login</li>
+          <li>Support</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index-home.html">Home</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">Gallery</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="autos">
+        <img src="https://cdn.discordapp.com/attachments/759170694910705677/1120484063271194665/auto2.png" alt="autoport" />
+      </div>
+      <div class="textMid">
+        <span class="start">¡Bienvenidos a smart parking! </span><br />
+        <span class="mid">
+          Nos dedicamos a proporcionar soluciones de estacionamiento
+          convenientes y confiables. Con experiencia en la industria,
+          garantizamos un servicio excepcional y la seguridad de tu vehículo.<br />
+          Nuestro objetivo es hacer que el estacionamiento sea cómodo y sin
+          complicaciones. Contamos con instalaciones modernas y personal amable
+          para asegurar una experiencia impecable. Ofrecemos servicios
+          adicionales como lavado de autos y carga para vehículos eléctricos.
+          Explora nuestro sitio para obtener más información sobre nuestras
+          ubicaciones y tarifas. ¡Confía en nosotros para el estacionamiento de
+          tu vehículo! Esperamos poder servirte pronto. </span
+        ><br />
+      </div>
+    </div>
+    <div class="button">
+      <a class="btn" href="#"><button>contactanos</button></a>
+    </div>
+    <script>
+      const searchBar = document.querySelector(".search-bar input");
+      const searchIcon = document.getElementById("search-icon");
+
+      searchBar.addEventListener("input", function () {
+        if (searchBar.value === "") {
+          searchIcon.style.display = "block";
+        } else {
+          searchIcon.style.display = "none";
+        }
+      });
+
+      const iconoMenu = document.querySelector("#icono-menu");
+      const menu = document.querySelector("#menu");
+
+      iconoMenu.addEventListener("click", (e) => {
+        // Alternamos estilos para el menú body
+        menu.classList.toggle("active");
+        document.body.classList.toggle("opacity");
+
+        // Alternamos su atributo 'src' para que el icono de menú cambie
+        const rutaActual = e.target.getAttribute("src");
+
+        if (rutaActual == "https://cdn.discordapp.com/attachments/759170694910705677/1120484065150251058/open-menu2.png") {
+          e.target.setAttribute("src", "https://cdn.discordapp.com/attachments/759170694910705677/1120484064953110648/open-menu.png");
+        } else {
+          e.target.setAttribute("src", "https://cdn.discordapp.com/attachments/759170694910705677/1120484065150251058/open-menu2.png");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi página web</title>
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Estilos del encabezado */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+    
+    /* Estilos de la barra de navegación */
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    
+    nav ul li {
+      margin-right: 10px;
+    }
+    
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px;
+    }
+    
+    /* Estilos del cuerpo */
+    .container {
+      display: flex;
+    }
+    
+    /* Estilos de la barra lateral */
+    .sidebar {
+      background-color: #f1f1f1;
+      width: 300px;
+      padding: 10px;
+      margin-right: 190px; /* Espacio adicional de 190px a la derecha */
+    }
+    
+    .sidebar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .sidebar ul li {
+      margin-bottom: 10px;
+    }
+    
+    .sidebar h2 {
+      margin-bottom: 5px;
+    }
+    
+    .sidebar h3 {
+      margin-top: 0;
+    }
+    
+    .sidebar ul.sub-options {
+      margin-top: 5px;
+      padding-left: 15px;
+    }
+    
+    .sidebar ul.sub-options li {
+      margin-bottom: 5px;
+    }
+    
+    .sidebar ul.sub-options li button {
+      margin-left: 10px;
+    }
+    
+    .sidebar .section-title {
+      margin-bottom: 5px;
+    }
+    
+    .sidebar .section-content {
+      margin-left: 15px;
+      margin-bottom: 10px;
+    }
+    
+    /* Estilos del contenido */
+    .content {
+      flex: 1;
+      padding: 10px;
+      position: relative;
+    }
+    
+    .image-container {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .image-container .rectangle-container {
+      position: absolute;
+      bottom: 125px; /* Posicionamiento 70px más arriba */
+
+      left: calc(50% - 31px - 199px - 177px); /* Posicionamiento a 200px a la izquierda y 240px más a la izquierda */
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Estilos de los rectángulos */
+    .rectangle {
+      width: 70px;
+      height: 160px;
+      background-color: red;
+    }
+    
+    .rectangle:not(:last-child) {
+      margin-right: 45px; /* Espacio de 45px entre rectángulos */
+    }
+    
+    .rectangle.green {
+      background-color: green;
+    }
+    
+    /* Estilos del flotador */
+    .footer {
+      background-color: #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<input>
+  <!-- Encabezado -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Cuerpo -->
+  <div class="container">
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <h2>Espacios</h2>
+      <h3>Todos los espacios</h3>
+      <ul class="sub-options">
+        <li>
+          Opción 1
+          <button onclick="changeRectangleColor(0)">Botón 1</button>
+        </li>
+        <li>
+          Opción 2
+          <button onclick="changeRectangleColor(1)">Botón 2</button>
+        </li>
+        <li>
+          Opción 3
+          <button onclick="changeRectangleColor(2)">Botón 3</button>
+        </li>
+        <li>
+          Opción 4
+          <button onclick="changeRectangleColor(3)">Botón 4</button>
+        </li>
+        <li>
+          Opción 5
+          <button onclick="changeRectangleColor(4)">Botón 5</button>
+        </li>
+      </ul>
+      <h2 class="section-title">Número de espacios</h2>
+      <div class="section-content">
+        Libre
+       
+        <span id="green-rectangle-count">0</span>
+        <br>
+        Ocupado
+        <span id="red-rectangle-count">0</span>
+      </div>
+      <h2 class="section-title">Hora</h2>
+      <div class="section-content">
+        <h3 id="current-time"></h3>
+      </div>
+    </aside>
+    
+    <!-- Contenido principal -->
+    <div class="content">
+      <div class="image-container">
+        <img src="https://cdn.discordapp.com/attachments/759170694910705677/1120530726702551071/fondo.png" alt="autoport">
+        <div class="rectangle-container">
+          <div class="rectangle"></div>
+          <div class="rectangle"></div>
+          <div class="rectangle"></div>
+          <div class="rectangle"></div>
+          <div class="rectangle"></div>
+        </div>
+      </div>
+      <h2>Conteo diario:</h2>
+      <p>Aquí puedes mostrar el conteo diario de algo.</p>
+    </div>
+  </div>
+  
+  <!-- Flotador -->
+  <div class="footer">
+    <p>Este es el flotador</p>
+  </div>
+  <!-- Script para mostrar la hora actual y cambiar el color del rectángulo -->
+  <script>
+    function updateCurrentTime() {
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+      
+      // Formato de 2 dígitos para horas, minutos y segundos
+      hours = ("0" + hours).slice(-2);
+      minutes = ("0" + minutes).slice(-2);
+      seconds = ("0" + seconds).slice(-2);
+      
+      var timeString = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("current-time").textContent = timeString;
+    }
+    
+    function changeRectangleColor(index) {
+      var rectangles = document.getElementsByClassName("rectangle");
+      var targetRectangle = rectangles[index];
+      targetRectangle.classList.toggle("green");
+      
+      // Actualizar el contador de rectángulos verdes
+      var greenRectangles = document.getElementsByClassName("rectangle green");
+      var greenRectangleCount = greenRectangles.length;
+      document.getElementById("green-rectangle-count").textContent = greenRectangleCount;
+      
+      // Actualizar el contador de rectángulos rojos
+      var redRectangleCount = rectangles.length - greenRectangleCount;
+      document.getElementById("red-rectangle-count").textContent = redRectangleCount;
+    }
+    
+    // Actualizar la hora cada segundo
+    setInterval(updateCurrentTime, 1000);
+  </script>
+</>
+</html>
