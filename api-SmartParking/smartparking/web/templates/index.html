@@ -1,0 +1,280 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar Tres</title>
+    <link rel="stylesheet" href="{% static '/smartparking/web/static/home.css' %}">
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' %}">
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+body {
+    background: linear-gradient(to right, #2b70e4 70%, #ffd034 70%);
+    overflow-x: hidden;
+}
+
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 85px;
+    padding: 0 9px 0 11%;
+}
+
+.header .icono-menu {
+    cursor: pointer;
+    order: 3;
+    margin-left: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.header .icono-menu img {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s;
+    vertical-align: top;
+    cursor: pointer; 
+}
+
+.header .icono-menu img:hover {
+    transform: scale(1.2);
+}
+
+.header nav {
+    order: 1;
+}
+
+.header .nav-links {
+    list-style: none;
+}
+
+.header .nav-links li {
+    display: inline-block;
+    padding: 0 20px;    
+}
+
+.header .nav-links li:nth-child(1) {
+    padding: 0 20px 0 0;
+}
+
+.header .nav-links li:hover {
+    transform: scale(1.1);
+}
+
+.header .nav-links a {
+    font-size: 700;
+    color: #eceff1;
+    text-decoration: none;    
+}
+
+.header .nav-links li a:hover {
+    color: #ffbc0e;
+}
+
+.btn {
+    order: 2;
+    padding-left: 16%;
+}
+
+.btn button {
+    margin-left: 20px;
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.btn button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.header .search-bar {
+    order: 2;
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    padding-left: 48%;
+}
+
+.header .search-bar input[type="text"] {
+    background-color: #2b70e4;
+    color: #eceff1;
+    padding: 5px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    height: 47px;
+    width: 90%;
+}
+
+.search-bar i {
+    position: absolute;
+    padding-right: 3%;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: white; /* Color del icono */
+}
+
+.search-bar i.hidden {
+    display: none;
+}
+
+.autos {
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.textMid {
+    padding-top: 7%;
+    display: block;
+    margin-left: 10%;
+}
+
+span.start {
+    color: #ffffff;
+    font-size: 45.6px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+span.mid {
+    color: #ffffff;
+    font-size: 26.6px;
+    font-weight: bold;
+    padding-left: 14.5%;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+span.end {
+    font-size: 85px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+/* Estilos para el contenedor del menú */
+.cont-menu {
+    background-color:#2b70e4;
+    box-shadow: 2px 0px 5px 2px rgb(66, 66, 66);
+    width: 400px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.5s ease;
+}
+
+.cont-menu ul {
+    padding: 100px 0 20px 0;
+    list-style: none;
+}
+
+.cont-menu ul li {
+    color: white;
+    display: block;
+    font-size: 25px;
+    text-decoration: none;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+.cont-menu ul li:hover {
+    background-color: rgb(228, 228, 228);
+    color: rgb(42, 42, 42);
+}
+
+/* Estilos para el JavaScript */
+.active {
+    transform: translateX(600px);
+}
+
+.opacity {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+    </style>
+    <header class="header">
+        
+        <div class="icono-menu">
+            <img src="https://cdn.discordapp.com/attachments/759170694910705677/1120484064953110648/open-menu.png"  id="icono-menu" alt="Logo de la marca">
+        </div>
+        <div class="cont-menu active" id="menu">
+            <ul>
+                <li> Login</li>
+                <li> Support</li>
+                <li> Contact Us</li>
+                </ul>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="/index-aboutO.html">About Us</a></li>
+                <li><a href="#">Gallery</a></li>
+            </ul>    
+        </nav>
+    </header>
+    <div class="autos">
+        <img src="https://cdn.discordapp.com/attachments/759170694910705677/1120484063019552928/auto1.png" alt="autoport">
+    </div>
+    <div class="textMid">
+        <span class="start">El mejor cuidado </span><br>
+        <span class="mid"> para tu </span><br>
+        <span class="end">Vehiculo</span><br>
+        <a class="btn" href="#"><button>contactanos</button></a>
+    </div>
+    <script>
+        const searchBar = document.querySelector('.search-bar input');
+        const searchIcon = document.getElementById('search-icon');
+
+        searchBar.addEventListener('input', function () {
+            if (searchBar.value === '') {
+                searchIcon.style.display = 'block';
+            } else {
+                searchIcon.style.display = 'none';
+            }
+        });
+
+        const iconoMenu = document.querySelector('#icono-menu');
+        const menu = document.querySelector('#menu');
+
+        iconoMenu.addEventListener('click', (e) => {
+            // Alternamos estilos para el menú body
+            menu.classList.toggle('active');
+            document.body.classList.toggle('opacity');
+
+            // Alternamos su atributo 'src' para que el icono de menú cambie
+            const rutaActual = e.target.getAttribute('src');
+
+            if (rutaActual == 'https://cdn.discordapp.com/attachments/759170694910705677/1120484064953110648/open-menu.png') {
+                e.target.setAttribute('src', 'https://cdn.discordapp.com/attachments/759170694910705677/1120484065150251058/open-menu2.png');
+            } else {
+                e.target.setAttribute('src', 'https://cdn.discordapp.com/attachments/759170694910705677/1120484064953110648/open-menu.png');
+            }
+        });
+    </script>
+</body>
+</html>
